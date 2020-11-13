@@ -47,6 +47,9 @@ void main() {
   printf("find Maximum \n");
   val = find_maximum(test,SIZE);
   printf("%d\n",val);
+  printf("find Mean \n");
+  val = find_mean(test,SIZE);
+  printf("%d\n",val);
 }
 
 /* Add other Implementation File Code Here */
@@ -76,11 +79,18 @@ unsigned char find_maximum(unsigned char *array, unsigned int arraySize) {
   return saveVal;
 };
 
-unsigned char find_mean(unsigned char *array, unsigned int arraySize) {
+unsigned int find_mean(unsigned char *array, unsigned int arraySize) {
+int i;
+int saveVal = 0;
 
+for (i=0; i<arraySize;i++,array++){
+      saveVal += (int) *array;
+}
+saveVal /= SIZE;
+return saveVal;
 };
 
-unsigned char find_median(unsigned char *array,unsigned int arraySize ) {
+unsigned int find_median(unsigned char *array,unsigned int arraySize ) {
 
 };
 

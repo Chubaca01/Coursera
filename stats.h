@@ -10,7 +10,7 @@
  *****************************************************************************/
 /**
  * @file  stats.h
- * @brief  Function that analyze an aray fo char
+ * @brief  Functions that analyze an array fo char
  *
  *  Functions that can analyze an array of unsigned char data items and report
  *  analytics on the maximum, minimum, mean, and median of the data set.
@@ -69,7 +69,7 @@
   *
   * @return  char min
   */
- unsigned char find_mean(unsigned char *array, unsigned int arraySize);
+ unsigned int find_mean(unsigned char *array, unsigned int arraySize);
  /**
   * @brief  return the median of an array of char
   *
@@ -80,7 +80,7 @@
   *
   * @return  char median
   */
- unsigned char find_median(unsigned char *array,unsigned int arraySize );
+unsigned int find_median(unsigned char *array,unsigned int arraySize );
  /**
   * @brief  Print statistics from an array of char
   *
