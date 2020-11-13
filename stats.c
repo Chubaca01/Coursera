@@ -37,9 +37,13 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char val;
   /* Statistics and Printing Functions Go Here */
   printf("print array \n");
   print_array(test,SIZE);
+  printf("find Minimum \n");
+  val = find_minimum(test,SIZE);
+  printf("%d\n",val);
 }
 
 /* Add other Implementation File Code Here */
@@ -48,7 +52,14 @@ void sort_array(unsigned char *array, unsigned int arraySize) {
 };
 
 unsigned char find_minimum(unsigned char *array, unsigned int arraySize) {
+  int i;
+  unsigned char saveVal = *array;
 
+  for (i=0; i<arraySize;i++,array++){
+    if (*array < saveVal)
+      saveVal = *array;
+  }
+  return saveVal;
 };
 
 unsigned char find_maximum(unsigned char *array, unsigned int arraySize) {
