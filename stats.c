@@ -30,116 +30,116 @@
 
 void main() {
 
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
+        unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                                     114, 88,   45,  76, 123,  87,  25,  23,
+                                     200, 122, 150, 90,   92,  87, 177, 244,
+                                     201,   6,  12,  60,   8,   2,   5,  67,
+                                     7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
+        /* Other Variable Declarations Go Here */
 
-  /* Statistics and Printing Functions Go Here */
-  printf("print array \n");
-  print_array(test,SIZE);
-  sort_array(test,SIZE);
-  printf("Sorted array \n");
-  print_array(test,SIZE);
-  printf("print Statistics \n");
-  print_statistics(test,SIZE);
+        /* Statistics and Printing Functions Go Here */
+        printf("print array \n");
+        print_array(test,SIZE);
+        sort_array(test,SIZE);
+        printf("Sorted array \n");
+        print_array(test,SIZE);
+        printf("print Statistics \n");
+        print_statistics(test,SIZE);
 }
 
 /* Add other Implementation File Code Here */
 void sort_array(unsigned char *array, unsigned int arraySize) {
-  int i,j;
-  unsigned char *pt_array,*pt_array_plus;
-  pt_array =array;
-  pt_array_plus = array;
-  pt_array_plus++;
+        int i,j;
+        unsigned char *pt_array,*pt_array_plus;
+        pt_array =array;
+        pt_array_plus = array;
+        pt_array_plus++;
 
-    for (i=0; i<arraySize; i++) {
-      for(j=0 ;j< (arraySize-i-1) ; j++,pt_array++,pt_array_plus++) {
-        if (*pt_array > *pt_array_plus ) {
-          unsigned  char temp;
-          temp = *pt_array;
-          *pt_array = *pt_array_plus;
-          *pt_array_plus = temp;
-          }
+        for (i=0; i<arraySize; i++) {
+                for(j=0; j< (arraySize-i-1); j++,pt_array++,pt_array_plus++) {
+                        if (*pt_array > *pt_array_plus ) {
+                                unsigned char temp;
+                                temp = *pt_array;
+                                *pt_array = *pt_array_plus;
+                                *pt_array_plus = temp;
+                        }
+                }
+                pt_array =array;
+                pt_array_plus = array;
+                pt_array_plus++;
         }
-      pt_array =array;
-      pt_array_plus = array;
-      pt_array_plus++;
-      }
 };
 
 unsigned char find_minimum(unsigned char *array, unsigned int arraySize) {
-  int i;
-  unsigned char saveVal = *array;
+        int i;
+        unsigned char saveVal = *array;
 
-  for (i=0; i<arraySize;i++,array++){
-    if (*array < saveVal)
-      saveVal = *array;
-  }
-  return saveVal;
+        for (i=0; i<arraySize; i++,array++) {
+                if (*array < saveVal)
+                        saveVal = *array;
+        }
+        return saveVal;
 };
 
 unsigned char find_maximum(unsigned char *array, unsigned int arraySize) {
-  int i;
-  unsigned char saveVal = 0;
+        int i;
+        unsigned char saveVal = 0;
 
-  for (i=0; i<arraySize;i++,array++){
-    if (*array > saveVal)
-      saveVal = *array;
-  }
-  return saveVal;
+        for (i=0; i<arraySize; i++,array++) {
+                if (*array > saveVal)
+                        saveVal = *array;
+        }
+        return saveVal;
 };
 
 unsigned int find_mean(unsigned char *array, unsigned int arraySize) {
-int i;
-int saveVal = 0;
+        int i;
+        int saveVal = 0;
 
-for (i=0; i<arraySize;i++,array++){
-      saveVal += (int) *array;
-}
-saveVal /= SIZE;
-return saveVal;
+        for (i=0; i<arraySize; i++,array++) {
+                saveVal += (int) *array;
+        }
+        saveVal /= arraySize;
+        return saveVal;
 };
 
 unsigned int find_median(unsigned char *array,unsigned int arraySize ) {
-  unsigned int median;
-  unsigned char val;
-  unsigned char val1;
-    if (arraySize % 2){
-      // odd value
-      median = (int) *(array+((arraySize+1) / 2)-1);
-    }
-    else{
-      // even value
-    val = (arraySize)/2;
-    val1 = val + 1;
-    median = ((int) *(array+val-1) + (int) *(array+val1-1))/2;
-    }
+        unsigned int median;
+        unsigned char val;
+        unsigned char val1;
+        if (arraySize % 2) {
+                // odd value
+                median = (int) *(array+((arraySize+1) / 2)-1);
+        }
+        else{
+                // even value
+                val = (arraySize)/2;
+                val1 = val + 1;
+                median = ((int) *(array+val-1) + (int) *(array+val1-1))/2;
+        }
 };
 
 void print_statistics(unsigned char* array,unsigned int arraySize){
-  unsigned char val;
-  printf("find Minimum \n");
-  val = find_minimum(array,arraySize);
-  printf("%d\n",val);
-  printf("find Maximum \n");
-  val = find_maximum(array,arraySize);
-  printf("%d\n",val);
-  printf("find Mean \n");
-  val = find_mean(array,arraySize);
-  printf("%d\n",val);
-  printf("find Median \n");
-  val = find_median(array,arraySize);
-  printf("%d\n",val);
+        unsigned char val;
+        printf("find Minimum \n");
+        val = find_minimum(array,arraySize);
+        printf("%d\n",val);
+        printf("find Maximum \n");
+        val = find_maximum(array,arraySize);
+        printf("%d\n",val);
+        printf("find Mean \n");
+        val = find_mean(array,arraySize);
+        printf("%d\n",val);
+        printf("find Median \n");
+        val = find_median(array,arraySize);
+        printf("%d\n",val);
 };
 
 void print_array(unsigned char* array,unsigned int arraySize){
-  int i;
+        int i;
 
-  for ( i=0 ; i<arraySize; i++,array++)
-    printf("%d ",*array);
-  printf("\n");
+        for ( i=0; i<arraySize; i++,array++)
+                printf("%d ",*array);
+        printf("\n");
 };
