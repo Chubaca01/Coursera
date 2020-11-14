@@ -37,21 +37,15 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  unsigned char val;
-  /* Statistics and Printing Functions Go Here */
 
-  printf("find Minimum \n");
-  val = find_minimum(test,SIZE);
-  printf("%d\n",val);
-  printf("find Maximum \n");
-  val = find_maximum(test,SIZE);
-  printf("%d\n",val);
-  printf("find Mean \n");
-  val = find_mean(test,SIZE);
-  printf("%d\n",val);
-  sort_array(test,SIZE);
+  /* Statistics and Printing Functions Go Here */
   printf("print array \n");
   print_array(test,SIZE);
+  sort_array(test,SIZE);
+  printf("Sorted array \n");
+  print_array(test,SIZE);
+  printf("print Statistics \n");
+  print_statistics(test,SIZE);
 }
 
 /* Add other Implementation File Code Here */
@@ -111,10 +105,35 @@ return saveVal;
 };
 
 unsigned int find_median(unsigned char *array,unsigned int arraySize ) {
-
+  unsigned int median;
+  unsigned char val;
+  unsigned char val1;
+    if (arraySize % 2){
+      // odd value
+      median = (int) *(array+((arraySize+1) / 2)-1);
+    }
+    else{
+      // even value
+    val = (arraySize)/2;
+    val1 = val + 1;
+    median = ((int) *(array+val-1) + (int) *(array+val1-1))/2;
+    }
 };
 
 void print_statistics(unsigned char* array,unsigned int arraySize){
+  unsigned char val;
+  printf("find Minimum \n");
+  val = find_minimum(array,arraySize);
+  printf("%d\n",val);
+  printf("find Maximum \n");
+  val = find_maximum(array,arraySize);
+  printf("%d\n",val);
+  printf("find Mean \n");
+  val = find_mean(array,arraySize);
+  printf("%d\n",val);
+  printf("find Median \n");
+  val = find_median(array,arraySize);
+  printf("%d\n",val);
 };
 
 void print_array(unsigned char* array,unsigned int arraySize){
