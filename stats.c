@@ -39,8 +39,7 @@ void main() {
   /* Other Variable Declarations Go Here */
   unsigned char val;
   /* Statistics and Printing Functions Go Here */
-  printf("print array \n");
-  print_array(test,SIZE);
+
   printf("find Minimum \n");
   val = find_minimum(test,SIZE);
   printf("%d\n",val);
@@ -50,11 +49,32 @@ void main() {
   printf("find Mean \n");
   val = find_mean(test,SIZE);
   printf("%d\n",val);
+  sort_array(test,SIZE);
+  printf("print array \n");
+  print_array(test,SIZE);
 }
 
 /* Add other Implementation File Code Here */
 void sort_array(unsigned char *array, unsigned int arraySize) {
+  int i,j;
+  unsigned char *pt_array,*pt_array_plus;
+  pt_array =array;
+  pt_array_plus = array;
+  pt_array_plus++;
 
+    for (i=0; i<arraySize; i++) {
+      for(j=0 ;j< (arraySize-i-1) ; j++,pt_array++,pt_array_plus++) {
+        if (*pt_array > *pt_array_plus ) {
+          unsigned  char temp;
+          temp = *pt_array;
+          *pt_array = *pt_array_plus;
+          *pt_array_plus = temp;
+          }
+        }
+      pt_array =array;
+      pt_array_plus = array;
+      pt_array_plus++;
+      }
 };
 
 unsigned char find_minimum(unsigned char *array, unsigned int arraySize) {
